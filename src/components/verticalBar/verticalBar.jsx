@@ -6,13 +6,13 @@ import Velo from "../../assets/Velo.svg";
 
 const VerticalBar = () => (
   <div className="bar">
-    <div className="bar__icone" >
-      <img className="bar__icone__Dumbbells" src={Dumbbells} alt={Dumbbells} />
-      <img className="bar__icone__Yoga" src={Yoga} alt={Yoga} />
-      <img className="bar__icone__Swim" src={Swim} alt={Swim} />
-      <img className="bar__icone__Velo" src={Velo} alt={Velo} />
+    <div className="bar__container" >
+      <img className="bar__icone" src={Dumbbells} alt={Dumbbells} />
+      <img className="bar__icone" src={Yoga} alt={Yoga} />
+      <img className="bar__icone" src={Swim} alt={Swim} />
+      <img className="bar__icone" src={Velo} alt={Velo} />
     </div>
-    <p>Copiryght, SportSee 2020</p>
+    <p className="bar__text">Copiryght, SportSee 2020</p>
   </div>
 );
 

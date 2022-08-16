@@ -1,0 +1,20 @@
+.bar {
+    background-color: #020203;
+    height: 100vh;
+    width: 7.31rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.bar__icone {
+    margin-bottom: 1.25rem;
+}
+
+.bar__text {
+    writing-mode: tb-rl;
+    transform: rotate(180deg);
+    margin-top: 3.68rem;
+    font-size: 0.75rem;
+}
