@@ -1,0 +1,21 @@
+.header {
+    background-color: #020203;
+    height: 5.68rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.header__logo {
+    margin-left: 1.75rem;
+}
+
+.header__list {
+    display: inline-flex;
+    width: inherit;
+    font-size: 1.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5.68rem 0 9.31rem;
+}
