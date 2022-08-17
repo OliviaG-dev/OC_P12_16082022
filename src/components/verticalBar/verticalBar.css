@@ -4,8 +4,17 @@
     width: 7.31rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     color: #FFFFFF;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -99;
+}
+
+.bar__container {
+    margin: 16rem 0 3rem 0;
 }
 
 .bar__icone {
@@ -15,6 +24,5 @@
 .bar__text {
     writing-mode: tb-rl;
     transform: rotate(180deg);
-    margin-top: 3.68rem;
     font-size: 0.75rem;
 }
