@@ -1,0 +1,17 @@
+
+.name {
+    font-size: 1.5rem;
+    text-decoration: none;
+    background-color: #E60000;
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    opacity: 0.6;
+    transition: 0.3s;
+    border-radius: 0.23rem;
+}
+
+.name:hover {
+    opacity: 1;
+}
