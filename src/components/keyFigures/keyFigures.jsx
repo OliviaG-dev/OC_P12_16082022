@@ -33,10 +33,10 @@ const KeyFigures = (icon) => {
         },
     ];
     return (
-        <div className='keyFigure'>
+        <div className='container'>
             {formatedProps.map((item) => {
                 return (
-                    <div key={item.label}>
+                    <div key={item.label} className='keyFigure'>
                         <img className='keyFigure__img' src={item.img} alt={item.label} />
                         <div className='keyFigure__name'>
                             <span className='keyFigure__name__data'>

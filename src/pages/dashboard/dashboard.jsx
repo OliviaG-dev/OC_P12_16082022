@@ -25,10 +25,12 @@ const Dashboard = () => {
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             </div>
-
-            <aside className=''>
-                <KeyFigures {...userInfo} />
-            </aside>
+            
+            <div className='dashboard'>
+                <aside className='dashboard__keyFigures'>
+                    <KeyFigures {...userInfo} />
+                </aside>
+            </div>
         </>
     );
 };

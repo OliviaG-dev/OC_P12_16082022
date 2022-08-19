@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.keyFigure {
+    background-color: #FBFBFB;
+    width: 14.12rem;
+    height: 5.75rem;
+    margin-bottom: 2.43rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyFigure:nth-child(4n) {
+    margin: 0;
+}
+
+.keyFigure__img {
+    margin-right: 1.5rem;
+}
+
+.keyFigure__name {
+    text-align: start;
+}
+
+.keyFigure__name__data {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 0.12rem;
+}
+
+.keyFigure__name__label {
+    font-size: 0.87rem;
+    display: block;
+    margin-top: 0.45rem;
+}
