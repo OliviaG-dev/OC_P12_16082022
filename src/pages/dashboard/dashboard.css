@@ -1,0 +1,20 @@
+
+.container__header {
+    height: 100%;
+    width: 100%; 
+    text-align: left;
+    margin-left: 14rem;
+}
+
+.container__header p {
+    font-size: 1.12rem;
+}
+
+.header__title {
+    font-size: 3rem;
+    margin: 4.25rem 0 2.56rem 0rem;
+}
+
+.header__title--color{
+    color: #FF0101;
+}

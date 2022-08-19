@@ -1,26 +1,36 @@
 //import { useState, useEffect } from 'react';
-//import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import "./dashboard.css"
-import Header from "../../components/header/header"
-import VerticalBar from "../../components/verticalBar/verticalBar"
-//import { getUserInfo } from "../../services/api";
+import mockData from '../../services/mockData'
+import KeyFigures from '../../components/keyFigures/keyFigures';
 //import PropTypes from 'prop-types';
 
 
 const Dashboard = () => {
 
-    //const [data, setData] = useState([])
-    //const [score, setScore] = useState([])
-    //const { id } = useParams()
-    //console.log(getUserInfo);
-    //console.log(id);
-  
+    let { id } = useParams();
+    let userId = parseInt(id);
+
+    const userInfo = mockData.USER_MAIN_DATA.find((item) => item.id === userId );
+
+
+    console.log(userInfo);
+
     return (
         <>
-        <Header />
-        <VerticalBar />
+            <div className='container__header'>
+            <h1 className='header__title'>
+                Bonjour {''}
+                <span className='header__title--color'>{userInfo.userInfos.firstName}</span>
+            </h1>
+            <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            </div>
+
+            <aside className=''>
+                <KeyFigures {...userInfo} />
+            </aside>
         </>
     );
-  };
-  
-  export default Dashboard;
+};
+
+export default Dashboard;
