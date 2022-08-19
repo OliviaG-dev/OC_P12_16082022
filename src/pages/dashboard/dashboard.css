@@ -1,7 +1,6 @@
 
 .container__header {
-    height: 100%;
-    width: 100%; 
+    
     text-align: left;
     margin-left: 14rem;
 }
@@ -17,4 +16,14 @@
 
 .header__title--color{
     color: #FF0101;
+}
+
+.dashboard {
+    margin: 2.81rem 5.62rem 5.5rem 14.12rem;
+    background-color: aqua;
+}
+
+.dashboard__keyFigures {
+    margin: 0 0 5.37rem 60.93rem;
+    height: 100%;
 }
