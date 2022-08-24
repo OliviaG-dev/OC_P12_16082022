@@ -1,0 +1,2 @@
+import "./DailyActivity.css";
+ 
