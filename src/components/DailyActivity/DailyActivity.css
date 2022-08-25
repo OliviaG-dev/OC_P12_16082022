@@ -1,0 +1,70 @@
+.customTooltip {
+    background-color: #E60000;
+	color: white;
+	font-size: 0.43rem;
+	line-height: 1.5rem;
+	padding: 0.62rem;
+    border: none;
+    outline: none;
+}
+
+.customTooltip:hover {
+    border: none;
+}
+
+.barChart {
+    padding: 1.5rem 0.62rem;
+
+}
+
+.barChart__title {
+    display: flex;
+    padding: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.barChart__title__name {
+    font-size: 0.93rem;
+}
+
+.barChart__legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.legend__kilogram {
+    font-size: 0.87rem;
+    color: #74798c;
+}
+
+.legend__kilogram, .legend__calories {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.legend__kilogram--blackRound, .legend__calorie--redRound {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.62rem;
+}
+
+.legend__kilogram--blackRound {
+    background-color: #282d30;
+}
+
+.legend__calories {
+    margin-left: 30px;
+    margin: 0 1.62rem 0 1.87rem;
+    font-size: 0.87rem;
+    color: #74798c;
+}
+
+.legend__calorie--redRound {
+    background-color: #E60000;
+}

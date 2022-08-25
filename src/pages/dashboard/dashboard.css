@@ -1,6 +1,5 @@
 
 .container__header {
-    
     text-align: left;
     margin-left: 14rem;
 }
@@ -21,9 +20,17 @@
 .dashboard {
     margin: 2.81rem 5.62rem 5.5rem 14.12rem;
     background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .dashboard__keyFigures {
-    margin: 0 0 5.37rem 60.93rem;
+    margin-left: 1.93rem;
     height: 100%;
+}
+
+.dashboard__dailyActivity {
+    width: 52.18rem;
+    height: 20rem;
+    background-color:#FBFBFB;
 }
