@@ -4,6 +4,7 @@ import "./dashboard.css";
 import mockData from "../../services/mockData";
 import KeyFigures from "../../components/keyFigures/keyFigures";
 import { getUserInfo } from "../../services/api";
+import DailyActivity from "../../components/dailyActivity/dailyActivity";
 //import PropTypes from 'prop-types';
 
 const Dashboard = () => {
@@ -16,6 +17,7 @@ const Dashboard = () => {
   let userId = parseInt(id);
 
   const userInfo = mockData.USER_MAIN_DATA.find((item) => item.id === userId);
+  const userActivity= mockData.USER_ACTIVITY.find((item) => item.userId === userId);
 
   useEffect(() => {
     setLoading(true);
@@ -41,7 +43,8 @@ const Dashboard = () => {
   if (error) {
     console.log(error);
   }
-
+  
+  console.log(userActivity);
   return (
     <>
       <div className="container__header">
@@ -55,8 +58,21 @@ const Dashboard = () => {
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
+      
 
       <div className="dashboard">
+
+      <div className="dashboard__dailyActivity">
+        {isMockData ? (
+          <DailyActivity {...userActivity}/>
+        ) : (
+          <DailyActivity {...userActivity}/>
+        )
+        }
+          
+      </div>
+
+
         <aside className="dashboard__keyFigures">
           {isMockData ? (
             <KeyFigures {...userInfo} />
