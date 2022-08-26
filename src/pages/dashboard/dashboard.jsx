@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./dashboard.css";
 import mockData from "../../services/mockData";
 import KeyFigures from "../../components/keyFigures/keyFigures";
-import { getUserInfo } from "../../services/api";
+import { getUserInfo, getUserActivity } from "../../services/api";
 import DailyActivity from "../../components/dailyActivity/dailyActivity";
 //import PropTypes from 'prop-types';
 
@@ -11,21 +11,25 @@ const Dashboard = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isMockData, setIsMockData] = useState(true);
-  const [data, setData] = useState([]);
-
+  const [dataUser, setDataUSer] = useState([]);
+  const [dataActivity, setDataActivity] = useState([]);
+  
   let { id } = useParams();
   let userId = parseInt(id);
-
+  
   const userInfo = mockData.USER_MAIN_DATA.find((item) => item.id === userId);
-  const userActivity= mockData.USER_ACTIVITY.find((item) => item.userId === userId);
+  const userActivity = mockData.USER_ACTIVITY.find(
+    (item) => item.userId === userId
+  );
 
   useEffect(() => {
     setLoading(true);
 
+     //////**********DATA USER INFO**********/////
     const getDataUser = async () => {
       try {
         const request = await getUserInfo(id);
-        setData(request.data);
+        setDataUSer(request.data);
         setIsMockData(false);
       } catch (error) {
         setError(true);
@@ -34,7 +38,22 @@ const Dashboard = () => {
       }
     };
     getDataUser();
-  }, [id]);
+    
+     //////**********DATA ACTIVITY**********/////
+    const getDataActivity = async () => {
+      try {
+        const request = await getUserActivity(userId);
+        setDataActivity(request.data);
+        setIsMockData(false);
+      } catch (error) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getDataActivity();
+
+  }, [id, userId]);
 
   if (loading) {
     return <>Loading...</>;
@@ -43,8 +62,8 @@ const Dashboard = () => {
   if (error) {
     console.log(error);
   }
-  
-  console.log(userActivity);
+
+
   return (
     <>
       <div className="container__header">
@@ -53,31 +72,26 @@ const Dashboard = () => {
           <span className="header__title--color">
             {isMockData
               ? userInfo?.userInfos?.firstName
-              : data.userInfos?.firstName}
+              : dataUser.userInfos?.firstName}
           </span>
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
-      
 
       <div className="dashboard">
-
-      <div className="dashboard__dailyActivity">
-        {isMockData ? (
-          <DailyActivity {...userActivity}/>
-        ) : (
-          <DailyActivity {...userActivity}/>
-        )
-        }
-          
-      </div>
-
+        <div className="dashboard__dailyActivity">
+          {isMockData ? (
+            <DailyActivity {...userActivity} />
+          ) : (
+            <DailyActivity {...dataActivity} />
+          )}
+        </div>
 
         <aside className="dashboard__keyFigures">
           {isMockData ? (
             <KeyFigures {...userInfo} />
           ) : (
-            <KeyFigures {...data} />
+            <KeyFigures {...dataUser} />
           )}
         </aside>
       </div>
