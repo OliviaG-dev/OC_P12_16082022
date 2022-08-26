@@ -62,7 +62,9 @@ const Dashboard = () => {
   if (error) {
     console.log(error);
   }
-
+  
+  console.log("mock", userActivity);
+  console.log("data", dataActivity);
 
   return (
     <>

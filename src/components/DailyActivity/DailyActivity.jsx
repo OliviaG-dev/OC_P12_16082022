@@ -25,7 +25,7 @@ const CustomTooltip = ({ payload, active }) => {
 
 
 const DailyActivity = ( props ) => {
-    let formatedProps = props.sessions.map((session) => ({
+    let formatedProps = props.sessions?.map((session) => ({
 		day: session.day.toString().slice(-1),
 		kilogram: session.kilogram,
 		calories: session.calories,
