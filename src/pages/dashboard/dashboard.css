@@ -18,20 +18,42 @@
 }
 
 .dashboard {
-    margin: 2.81rem 5.62rem 5.5rem 14.12rem;
+    margin: 2.81rem 5.62rem auto 14.12rem;
     background-color: aqua;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.dashboard__keyFigures {
+.stat__keyFigures {
     margin-left: 1.93rem;
     height: 100%;
 }
 
-.dashboard__dailyActivity {
+.stat__dailyActivity {
     width: 52.18rem;
     height: 20rem;
     background-color:#FBFBFB;
+}
+
+.stat__charts {
+    width: 52.18rem;
+    height: 16.43rem;
+    margin-top: 1.75rem;
+    background: pink;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* .stat__charts div {
+    width: 16.12rem;
+    height: 100%;
+} */
+
+.charts__sessionDuration {
+    background: #ff0000;
+    width: 16.12rem;
+    height: 100%;
+    border-radius: 0.31rem;
 }

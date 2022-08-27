@@ -19,7 +19,7 @@ const getUserActivity = async (id) => {
 };
 
 const getUserAverage = async (id) => {
-    const response = await fetch(`http://localhost:3000/user/${id}/average`);
+    const response = await fetch(`http://localhost:3000/user/${id}/average-sessions`);
     const data = await response.json();
     return data;
 };
