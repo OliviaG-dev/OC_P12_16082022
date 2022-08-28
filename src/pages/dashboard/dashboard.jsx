@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import "./dashboard.css";
 import mockData from "../../services/mockData";
 import KeyFigures from "../../components/keyFigures/keyFigures";
-import { getUserInfo, getUserActivity, getUserAverage } from "../../services/api";
+import { getUserInfo, getUserActivity, getUserAverage, getUserPerformance } from "../../services/api";
 import DailyActivity from "../../components/dailyActivity/dailyActivity";
 import SessionDuration from "../../components/sessionDuration/sessionDuration";
+import TypeOfPerformance from "../../components/typeOfPerformance/typeOfPerformance";
 //import PropTypes from 'prop-types';
 
 const Dashboard = () => {
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const [dataUser, setDataUSer] = useState([]);
   const [dataActivity, setDataActivity] = useState([]);
   const [dataSession, setDataSession] = useState([]);
+  const [dataPerformance, setDataPerformance] = useState ([]);
 
   let { id } = useParams();
   let userId = parseInt(id);
@@ -24,6 +26,8 @@ const Dashboard = () => {
     (item) => item.userId === userId
   );
   const userSession = mockData.USER_AVERAGE_SESSIONS.find((item) => item.userId === userId);
+  const userPerformance = mockData.USER_PERFORMANCE.find((item) => item.userId === userId)
+
 
   useEffect(() => {
     setLoading(true);
@@ -70,6 +74,20 @@ const Dashboard = () => {
     };
     getDataSession();
 
+    //////**********DATA PERFORMANCE**********/////
+    const getDataPerformance = async () => {
+      try {
+        const request = await getUserPerformance(userId);
+        setDataPerformance(request.data);
+        setIsMockData(false);
+      } catch (error) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getDataPerformance();
+
   }, [id, userId]);
 
   if (loading) {
@@ -80,8 +98,8 @@ const Dashboard = () => {
     console.log(error);
   }
 
-  console.log("mock", userSession);
-  console.log("data", dataSession);
+  console.log("mock", userPerformance);
+  console.log("data", dataPerformance);
 
   return (
     <>
@@ -116,7 +134,14 @@ const Dashboard = () => {
               )
               }
             </div>
-            <div className="charts__typeOfActivity"></div>
+            <div className="charts__typeOfPerformance">
+            {isMockData ? (
+                <TypeOfPerformance {...userPerformance}/>
+              ) : (
+                <TypeOfPerformance {...dataPerformance}/>
+              )
+              }
+            </div>
             <div className="charts__averageScore"></div>
           </article>
         </section>
