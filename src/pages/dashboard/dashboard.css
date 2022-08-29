@@ -52,7 +52,7 @@
 } */
 
 .charts__sessionDuration {
-    background: #ff0000;
+    background-color: #ff0000;
     width: 16.12rem;
     height: 100%;
     border-radius: 0.31rem;
@@ -63,4 +63,11 @@
     width: 16.12rem;
     height: 100%;
     border-radius: 0.31rem;
+}
+
+.charts__averageScore {
+    width: 16.12rem;
+    height: 100%;
+    border-radius: 0.31rem;
+    background-color: #fbfbfb;
 }

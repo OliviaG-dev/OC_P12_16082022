@@ -7,7 +7,8 @@ import { getUserInfo, getUserActivity, getUserAverage, getUserPerformance } from
 import DailyActivity from "../../components/dailyActivity/dailyActivity";
 import SessionDuration from "../../components/sessionDuration/sessionDuration";
 import TypeOfPerformance from "../../components/typeOfPerformance/typeOfPerformance";
-//import PropTypes from 'prop-types';
+import AverageScore from "../../components/averageScore/averageScore";
+
 
 const Dashboard = () => {
   const [error, setError] = useState(false);
@@ -17,6 +18,7 @@ const Dashboard = () => {
   const [dataActivity, setDataActivity] = useState([]);
   const [dataSession, setDataSession] = useState([]);
   const [dataPerformance, setDataPerformance] = useState ([]);
+  
 
   let { id } = useParams();
   let userId = parseInt(id);
@@ -28,7 +30,6 @@ const Dashboard = () => {
   const userSession = mockData.USER_AVERAGE_SESSIONS.find((item) => item.userId === userId);
   const userPerformance = mockData.USER_PERFORMANCE.find((item) => item.userId === userId)
 
-
   useEffect(() => {
     setLoading(true);
 
@@ -36,6 +37,7 @@ const Dashboard = () => {
     const getDataUser = async () => {
       try {
         const request = await getUserInfo(id);
+        console.log(request.data);
         setDataUSer(request.data);
         setIsMockData(false);
       } catch (error) {
@@ -98,9 +100,6 @@ const Dashboard = () => {
     console.log(error);
   }
 
-  console.log("mock", userPerformance);
-  console.log("data", dataPerformance);
-
   return (
     <>
       <div className="container__header">
@@ -142,7 +141,14 @@ const Dashboard = () => {
               )
               }
             </div>
-            <div className="charts__averageScore"></div>
+            <div className="charts__averageScore">
+            {isMockData ? (
+                <AverageScore scorePercent={userInfo.todayScore}/>
+              ) : (
+                <AverageScore scorePercent={dataUser.todayScore}/>
+              )
+              }
+            </div>
           </article>
         </section>
 
