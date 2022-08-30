@@ -1,6 +1,9 @@
+//let isMoked = false
+
 const getUserInfo = async (id) => {
   const response = await fetch(`http://localhost:3000/user/${id}`);
-  const data = await response.json();
+  const data = await response.json(); 
+  if (data.data.todayScore === undefined) data.data.todayScore = data.data.score
   return data;
 };
 
