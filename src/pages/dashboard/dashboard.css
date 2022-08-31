@@ -1,7 +1,8 @@
 
 .container__header {
     text-align: left;
-    margin-left: 14rem;
+    width: 70.25rem;
+    margin-bottom: 4.81rem;
 }
 
 .container__header p {
@@ -10,7 +11,7 @@
 
 .header__title {
     font-size: 3rem;
-    margin: 4.25rem 0 2.56rem 0rem;
+    margin: 4.81rem 0 2.56rem 0rem;
 }
 
 .header__title--color{
@@ -18,11 +19,14 @@
 }
 
 .dashboard {
-    margin: 2.81rem 5.62rem auto 14.12rem;
-    background-color: aqua;
+    margin: 2.81rem 5.62rem 5.5rem 14.12rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.dashboard__keyFigures{
+    margin-left: 1.93rem;
 }
 
 .stat__keyFigures {
@@ -40,22 +44,17 @@
     width: 52.18rem;
     height: 16.43rem;
     margin-top: 1.75rem;
-    background: pink;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
-/* .stat__charts div {
-    width: 16.12rem;
-    height: 100%;
-} */
 
 .charts__sessionDuration {
     background-color: #ff0000;
     width: 16.12rem;
     height: 100%;
     border-radius: 0.31rem;
+    position: relative;
 }
 
 .charts__typeOfPerformance {
@@ -70,4 +69,36 @@
     height: 100%;
     border-radius: 0.31rem;
     background-color: #fbfbfb;
+}
+
+.charts__sessionDuration__background{
+    background-color: #000000;
+    opacity: 0.1;
+    width: 4.93rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.flex {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/*******************Responsive 1024px*******************/
+
+@media (max-width: 1434px) { 
+    .dashboard__keyFigures {
+        margin: 0;
+    }
+
+    .dashboard {
+        margin: 2.81rem 5.62rem 5.5rem 6rem;  
+    }
+
+    .container__header {
+        width: 52.18rem;
+    }
 }

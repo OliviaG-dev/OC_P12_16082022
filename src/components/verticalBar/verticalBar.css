@@ -1,6 +1,6 @@
 .bar {
     background-color: #020203;
-    height: 100vh;
+    height: 70rem;
     width: 7.31rem;
     display: flex;
     flex-direction: column;
@@ -25,4 +25,12 @@
     writing-mode: tb-rl;
     transform: rotate(180deg);
     font-size: 0.75rem;
+}
+
+/***************Responsive 1024px********************/
+
+@media (max-width: 1434px) { 
+    .bar {
+        display: none;
+    }
 }
