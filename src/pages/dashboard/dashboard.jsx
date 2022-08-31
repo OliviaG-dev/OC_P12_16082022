@@ -10,6 +10,7 @@ import TypeOfPerformance from "../../components/typeOfPerformance/typeOfPerforma
 import AverageScore from "../../components/averageScore/averageScore";
 
 
+
 const Dashboard = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -101,7 +102,20 @@ const Dashboard = () => {
   }
 
   return (
-    <>
+    <div className="flex">
+      {/* <div className="container__header">
+        <h1 className="header__title">
+          Bonjour {""}
+          <span className="header__title--color">
+            {isMockData
+              ? userInfo?.userInfos?.firstName
+              : dataUser.userInfos?.firstName}
+          </span>
+        </h1>
+        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+      </div> */}
+
+      <div className="dashboard">
       <div className="container__header">
         <h1 className="header__title">
           Bonjour {""}
@@ -113,8 +127,6 @@ const Dashboard = () => {
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
-
-      <div className="dashboard">
         <section className="dashboard_stat">
           <article className="stat__dailyActivity">
             {isMockData ? (
@@ -126,6 +138,7 @@ const Dashboard = () => {
           
           <article className="stat__charts">
             <div className="charts__sessionDuration">
+            <div className="charts__sessionDuration__background"></div>
               {isMockData ? (
                 <SessionDuration {...userSession}/>
               ) : (
@@ -160,7 +173,7 @@ const Dashboard = () => {
           )}
         </section>
       </div>
-    </>
+    </div>
   );
 };
 

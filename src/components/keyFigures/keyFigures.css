@@ -36,3 +36,15 @@
     display: block;
     margin-top: 0.45rem;
 }
+
+/*****************Responsive 1024px**********************/
+
+@media (max-width: 1434px) { 
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        justify-content: space-around;
+        margin-right: 1rem;
+    }
+}
