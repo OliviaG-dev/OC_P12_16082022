@@ -102,19 +102,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="flex">
-      {/* <div className="container__header">
-        <h1 className="header__title">
-          Bonjour {""}
-          <span className="header__title--color">
-            {isMockData
-              ? userInfo?.userInfos?.firstName
-              : dataUser.userInfos?.firstName}
-          </span>
-        </h1>
-        <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-      </div> */}
-
+    <>
       <div className="dashboard">
       <div className="container__header">
         <h1 className="header__title">
@@ -173,7 +161,7 @@ const Dashboard = () => {
           )}
         </section>
       </div>
-    </div>
+    </>
   );
 };
 

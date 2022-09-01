@@ -37,6 +37,9 @@ const AverageScore = ({scorePercent}) => (
 )
 
 AverageScore.propTypes = {
+  /**
+  * Score percentage that should be displayed in the chart
+  */
   scorePercent: PropTypes.number,
 }
 

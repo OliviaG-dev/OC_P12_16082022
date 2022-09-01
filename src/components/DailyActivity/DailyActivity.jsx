@@ -8,8 +8,13 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-//import PropTypes from "prop-types";
 
+/**
+ * 
+ * @param {boolean} active 
+ * @param {array} payload 
+ * @returns 
+ */
 const CustomTooltip = ({ payload, active }) => {
   if (active && payload && payload.length) {
     return (
@@ -21,6 +26,7 @@ const CustomTooltip = ({ payload, active }) => {
   }
   return null;
 };
+
 
 const DailyActivity = (props) => {
   let formatedProps = props.sessions?.map((item) => ({
