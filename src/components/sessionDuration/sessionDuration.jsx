@@ -1,16 +1,14 @@
 import "./sessionDuration.css"
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import PropTypes from "prop-types"
 
-let days = {
-    1:"L",
-    2:"M",
-    3:"M",
-    4:"J",
-    5:"V",
-    6:"S",
-    7:"D"
-}
 
+/**
+ * 
+ * @param {boolean} active 
+ * @param {array} payload 
+ * @returns 
+ */
 const CustomTooltip = ({ active, payload}) => {
     if (active && payload && payload.length) {
         return (
@@ -21,12 +19,25 @@ const CustomTooltip = ({ active, payload}) => {
     }
 }
 
-const SessionDuration = (props) => {
-    let formatedProps = props.sessions?.map((item) => ({
-                    day: days[item.day],
-                    sessionLength: item.sessionLength,
-    }));
+
+
+const SessionDuration = ({ averageData }) => {
     
+    /**
+     * 
+     * @param {number} value 
+     * @returns {string} first letter of days
+     */
+    function formatXAxis(value) {
+        if (value === 1) return 'L'
+        if (value === 2) return 'M'
+        if (value === 3) return 'M'
+        if (value === 4) return 'J'
+        if (value === 5) return 'V'
+        if (value === 6) return 'S'
+        if (value === 7) return 'D'
+        return value
+    }
 
     return (
     <div className="session">
@@ -35,7 +46,7 @@ const SessionDuration = (props) => {
         </div>
         <ResponsiveContainer>
             <LineChart
-                data={ formatedProps }
+                data={ averageData }
                 width={600}
                 height={300}
                 margin={{ top:80, right:15, left:15, bottom:0 }}
@@ -50,6 +61,7 @@ const SessionDuration = (props) => {
                         tick={{ fontSize: 12 }}
 						minTickGap={3}
                         interval={'preserveStartEnd'}
+                        tickFormatter={formatXAxis}
                     />
                     <YAxis hide={true} domain={['dataMin - 40', 'dataMax + 30']} dataKey="sessionLength"  tickLine={false}/>
                     <Tooltip content={<CustomTooltip />} />
@@ -70,5 +82,11 @@ const SessionDuration = (props) => {
     )
 }
 
+/**
+ * activityData return a array
+ */
+SessionDuration.propTypes = {
+    activityData: PropTypes.array,
+}
 
 export default SessionDuration;

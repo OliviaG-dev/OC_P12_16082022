@@ -6,7 +6,7 @@ import Velo from "../../assets/Velo.svg";
 
 const VerticalBar = () => (
   <div className="bar">
-    <div className="bar__container" >
+    <div className="bar__container">
       <img className="bar__icone" src={Dumbbells} alt={Dumbbells} />
       <img className="bar__icone" src={Yoga} alt={Yoga} />
       <img className="bar__icone" src={Swim} alt={Swim} />

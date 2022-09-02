@@ -8,12 +8,13 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import PropTypes from "prop-types";
 
 /**
- * 
- * @param {boolean} active 
- * @param {array} payload 
- * @returns 
+ *
+ * @param {boolean} active
+ * @param {array} payload
+ * @returns
  */
 const CustomTooltip = ({ payload, active }) => {
   if (active && payload && payload.length) {
@@ -27,13 +28,15 @@ const CustomTooltip = ({ payload, active }) => {
   return null;
 };
 
-
-const DailyActivity = (props) => {
-  let formatedProps = props.sessions?.map((item) => ({
-    day: item.day.toString().slice(-1),
-    kilogram: item.kilogram,
-    calories: item.calories,
-  }));
+const DailyActivity = ({ activityData }) => {
+  /**
+   *
+   * @param {number} item
+   * @returns
+   */
+  function formatXAxis(item) {
+    return item + 1;
+  }
 
   return (
     <div className="barChart">
@@ -53,10 +56,10 @@ const DailyActivity = (props) => {
 
       <div style={{ width: "100%", height: 200 }}>
         <ResponsiveContainer>
-          <BarChart data={formatedProps}>
+          <BarChart data={activityData}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
             <XAxis
-              dataKey="day"
+              tickFormatter={formatXAxis}
               axisLine={false}
               tickLine={false}
               domain={["dataMin", "dataMax"]}
@@ -109,6 +112,13 @@ const DailyActivity = (props) => {
       </div>
     </div>
   );
+};
+
+/**
+ * activityData return a array
+ */
+DailyActivity.propTypes = {
+  activityData: PropTypes.array,
 };
 
 export default DailyActivity;

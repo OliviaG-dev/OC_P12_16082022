@@ -6,7 +6,9 @@ const chartMargin = { top: 30, right: 30, bottom: 30, left: 30 }
 
 const AverageScore = ({scorePercent}) => (
 
-      <div className="score">
+  
+  
+  <div className="score">
         <h2 className="score__title">Score</h2>
         <div className="score__content">
           <h3>{scorePercent * 100}%</h3>
@@ -36,10 +38,10 @@ const AverageScore = ({scorePercent}) => (
     
 )
 
+/**
+ * scorePercent retrun a number
+ */
 AverageScore.propTypes = {
-  /**
-  * Score percentage that should be displayed in the chart
-  */
   scorePercent: PropTypes.number,
 }
 
